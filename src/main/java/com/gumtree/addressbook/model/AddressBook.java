@@ -3,6 +3,7 @@ package com.gumtree.addressbook.model;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public class AddressBook {
     }
 
     public List<Person> getContacts() {
-        return contacts;
+        return Collections.unmodifiableList(contacts);
     }
 
     /**
@@ -31,10 +32,9 @@ public class AddressBook {
         return contacts.stream().filter(p -> gender.equals(p.getGender())).count();
     }
 
-    // If multiple people are the oldest it would return the first one in the list.
-
     /**
      * finds the oldest person in the address book.
+     * If multiple people are the oldest it would return the first one in the list.
      *
      * @return returns the Optional containing the oldest Person.
      */
