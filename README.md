@@ -6,6 +6,11 @@ Use the below command to execute the application:
 
 <b>mvn clean install exec:java</b>
 
+## Requirements
+
+Java 8
+Maven
+
 ## Approach and Assumtions
 1. TDD approach is followed.
 
