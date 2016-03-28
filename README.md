@@ -3,7 +3,8 @@
 ## How to run?
 
 Use the below command to execute the application:
-mvn clean install exec:java
+
+<b>mvn clean install exec:java</b>
 
 ## Approach and Assumtions
 1. TDD approach is followed.
@@ -24,3 +25,10 @@ mvn clean install exec:java
 
 7. If multiple people are the oldest it would return the first one in the list.
 
+## Ouput:
+
+1. Number Of Males: [3].
+
+2. Oldest Person's name: [Wes Jackson].
+
+3. Bill is Older than Paul by [2862] days.
