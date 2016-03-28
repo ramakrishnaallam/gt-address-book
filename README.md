@@ -9,6 +9,7 @@ Use the below command to execute the application:
 ## Requirements
 
 Java 8
+
 Maven
 
 ## Approach and Assumtions
