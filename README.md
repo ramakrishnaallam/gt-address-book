@@ -1,5 +1,10 @@
 # gt-address-book
 
+## How to run?
+
+Use the below command to execute the application:
+mvn clean install exec:java
+
 ## Approach and Assumtions
 1. TDD approach is followed.
 
@@ -18,3 +23,4 @@
    The file contains data : name, Male/Female, DOB in that order - with no headings. It contains only data.
 
 7. If multiple people are the oldest it would return the first one in the list.
+
