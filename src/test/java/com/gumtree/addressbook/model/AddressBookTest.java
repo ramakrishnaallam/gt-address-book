@@ -84,8 +84,10 @@ public class AddressBookTest {
 
         Optional<Person> abc = (Person.parsePerson("ABC, Male, 20/09/64"));
         Optional<Person> xyz = (Person.parsePerson("XYZ, Female, 20/09/64"));
-        addressBook.getContacts().add(abc.get());
-        addressBook.getContacts().add(xyz.get());
+        List<Person> contacts = new ArrayList<>();
+        contacts.add(abc.get());
+        contacts.add(xyz.get());
+        addressBook = new AddressBook(contacts);
         long diff = addressBook.getAgeDifferenceInDays("ABC", "XYZ").get();
         assertTrue(diff == 0);
     }
@@ -94,8 +96,10 @@ public class AddressBookTest {
     public void testAgeDiffOfEqualBdays() {
         Optional<Person> abc = (Person.parsePerson("ABC, Male, 20/09/64"));
         Optional<Person> xyz = (Person.parsePerson("XYZ, Female, 20/09/64"));
-        addressBook.getContacts().add(abc.get());
-        addressBook.getContacts().add(xyz.get());
+        List<Person> contacts = new ArrayList<>();
+        contacts.add(abc.get());
+        contacts.add(xyz.get());
+        addressBook = new AddressBook(contacts);
         long diff = addressBook.getAgeDifferenceInDays("ABC", "XYZ").get();
         assertTrue(diff == 0);
     }
@@ -103,7 +107,9 @@ public class AddressBookTest {
     @Test
     public void testAgeDiffOfSamePerson() {
         Optional<Person> abc = (Person.parsePerson("ABC, Male, 20/09/64"));
-        addressBook.getContacts().add(abc.get());
+        List<Person> contacts = new ArrayList<>();
+        contacts.add(abc.get());
+        addressBook = new AddressBook(contacts);
         long diff = addressBook.getAgeDifferenceInDays("ABC", "ABC").get();
         assertTrue(diff == 0);
     }
@@ -112,11 +118,12 @@ public class AddressBookTest {
     public void testAgeDiffIfOneisInvalidPerson() {
         Optional<Person> abc = (Person.parsePerson("ABC, Male, 20/09/64"));
         Optional<Person> xyz = (Person.parsePerson("XYZ, 20/09/64"));
+        List<Person> contacts = new ArrayList<>();
         if (abc.isPresent()) {
-            addressBook.getContacts().add(abc.get());
+            contacts.add(abc.get());
         }
         if (xyz.isPresent()) {
-            addressBook.getContacts().add(xyz.get());
+            contacts.add(xyz.get());
         }
         assertFalse(addressBook.getAgeDifferenceInDays("ABC", "XYZ").isPresent());
     }
@@ -125,7 +132,8 @@ public class AddressBookTest {
     public void testAgeDiffIfOnePersonNotPresent() {
         Optional<Person> abc = (Person.parsePerson("ABC, Male, 20/09/64"));
         if (abc.isPresent()) {
-            addressBook.getContacts().add(abc.get());
+            List<Person> contacts = new ArrayList<>();
+            contacts.add(abc.get());
         }
         assertFalse(addressBook.getAgeDifferenceInDays("ABC", "XYZ").isPresent());
     }
