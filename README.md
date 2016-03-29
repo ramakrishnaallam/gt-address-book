@@ -31,7 +31,7 @@ Maven
 
 7. If multiple people are the oldest it would return the first one in the list.
 
-## Ouput:
+## Output:
 
 1. Number Of Males: [3].
 
